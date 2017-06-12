@@ -9,13 +9,13 @@ package poo.aulas.banco.funcionarios;
  *
  * @author aluno
  */
-public class Presidente extends Gerente {
-
+public class SecretarioAdministrativo extends Secretario {
+    
     @Override
     public double getBonificacao() {
-        return super.getBonificacao() + 1000;
+        return super.getBonificacao();
     }
-
+    
     public String getNome() {
         return nome;
     }
@@ -39,6 +39,5 @@ public class Presidente extends Gerente {
     public void setSalario(double salario) {
         this.salario = salario;
     }
-    
     
 }

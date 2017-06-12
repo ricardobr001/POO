@@ -21,7 +21,8 @@ public class ContaCorrente extends Conta {
     
     @Override
     public void atualizaSaldo(double taxa){
-        super.atualizaSaldo(taxa*2);
+        //super.atualizaSaldo(taxa*2);
+        this.saldo = ((this.saldo) * (1 + (taxa / 100))) * 2;
     }
     
     @Override

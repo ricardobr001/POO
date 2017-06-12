@@ -9,8 +9,13 @@ package poo.aulas.banco.funcionarios;
  *
  * @author aluno
  */
-public class Secretario extends Funcionario {
+abstract public class Secretario extends Funcionario {
 
+    @Override
+    public double getBonificacao() {
+        return this.salario * 0.1;
+    }
+    
     public String getNome() {
         return nome;
     }

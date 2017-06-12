@@ -9,14 +9,14 @@ package poo.aulas.banco.funcionarios;
  *
  * @author aluno
  */
-public class Funcionario {
+abstract public class Funcionario {
     protected String nome;
     protected String cpf;
     protected double salario;
     
-    public double getBonificacao(){
+    public abstract double getBonificacao();/*{
         return this.salario * 0.1;
-    }
+    }*/
 
     public String getNome() {
         return nome;

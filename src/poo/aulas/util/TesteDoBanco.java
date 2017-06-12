@@ -142,7 +142,7 @@ public class TesteDoBanco {
     a.roda(cp);
     System.out.println("Saldo Total: " + a.getSaldoTotal());*/
     
-    Banco b = new Banco("Banco do Brasil", 10);
+    /*Banco b = new Banco("Banco do Brasil", 10);
     char letra = 'A';
     String nome = "";
     nome += letra;
@@ -155,6 +155,6 @@ public class TesteDoBanco {
         nome += letra;
     }
     
-    System.out.println(b.mostraContas());
+    System.out.println(b.mostraContas());*/
   }
 }

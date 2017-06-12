@@ -21,6 +21,7 @@ public class ContaPoupanca extends Conta {
     
     @Override
     public void atualizaSaldo(double taxa){
-        super.atualizaSaldo(taxa*3);
+        //super.atualizaSaldo(taxa*3);
+        this.saldo = ((this.saldo) * (1 + (taxa / 100))) * 3;
     }
 }

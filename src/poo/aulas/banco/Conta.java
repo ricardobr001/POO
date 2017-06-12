@@ -9,7 +9,7 @@ package poo.aulas.banco;
  *
  * @author aluno
  */
-public class Conta {
+abstract public class Conta {
   protected double saldo;
   protected double limite;
   protected Cliente titular;
@@ -86,7 +86,7 @@ public class Conta {
       return this.numero;
   }
   
-  public void atualizaSaldo(double taxa) {
+  public abstract void atualizaSaldo(double taxa);/* {
       this.saldo = (this.saldo) * (1 + (taxa / 100));
-  }
+  }*/
 }
