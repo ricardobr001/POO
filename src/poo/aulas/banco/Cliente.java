@@ -8,7 +8,7 @@ package poo.aulas.banco;
 public class Cliente {
   private String nome;
   private String endereco;
-  private String cpf;
+  private final String cpf;
 
   /*
    *Construtores*

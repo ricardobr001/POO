@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package poo.aulas.util;
+import java.util.ArrayList;
+import java.util.Scanner;
 import poo.aulas.banco.*;
 
 public class TesteDoBanco {
@@ -156,5 +158,80 @@ public class TesteDoBanco {
     }
     
     System.out.println(b.mostraContas());*/
+    boolean flagPrincipal = true;
+    ArrayList<Banco> b = new ArrayList();
+    
+    while (flagPrincipal){
+        System.out.println("Bem vindo ao Sistema gerenciador de bancos!");
+        System.out.println("1 - Adicionar um novo banco.\n" +
+                "2 - Selecionar um banco já cadastrado.\n" +
+                "3 - Sair do sistema!");
+        
+        Scanner dados = new Scanner(System.in);
+        int opcao1 = Integer.parseInt(dados.nextLine());
+        
+        switch(opcao1){
+            case 1:
+                System.out.printf("Digite o nome do novo banco: ");
+                String nomeDoBanco = dados.nextLine();
+                
+                System.out.printf("Digite quantas contas seu banco ira ter: ");
+                int qtdd_contas = Integer.parseInt(dados.nextLine());
+                
+                Banco banco = new Banco(nomeDoBanco, qtdd_contas);
+                b.add(banco);
+                System.out.println("Banco criado com sucesso!!\n\n");
+                break;
+            
+            case 2:
+                System.out.printf("Digite o nome do banco: ");
+                nomeDoBanco = dados.nextLine();
+                
+                for (int i = 0 ; i < b.size() ; i++){
+                    if(b.get(i).getNome() == nomeDoBanco){
+                        break;
+                    }
+                }
+                
+                boolean flagBanco = true;
+                while(flagBanco){
+                    System.out.println("1 - Adicionar uma nova conta.\n" + 
+                            "2 - Adicionar uma nova conta corrente.\n" + 
+                            "3 - Adicionar uma nova conta poupança.\n" + 
+                            "4 - Sair do banco " + nomeDoBanco + "!\n");
+                    int opcao2 = Integer.parseInt(dados.nextLine());
+
+                    switch(opcao2){
+                        case 1:
+                            System.out.printf("Informe o nome do novo cliente: ");
+                            String nomeDoCliente = dados.nextLine();
+                            
+                            System.out.printf("Informe o endereço: ");
+                            String endereco = dados.nextLine();
+                            
+                            System.out.printf("Informe o CPF: ");
+                            String cpf = dados.nextLine();
+                            
+                            Cliente c = new Cliente(nomeDoCliente, endereco, cpf);
+                            //b.get(i).
+                            break;
+
+                        case 2:
+                            break;
+
+                        default:
+                            System.out.println("\nPor favor, selecione uma opção válida!\n");
+                    }
+                }
+                break;
+                
+            case 3:
+                flagPrincipal = false;
+                break;
+                
+            default:
+                System.out.println("\nPor favor, selecione uma opção válida!\n");
+        }
+    }
   }
 }
