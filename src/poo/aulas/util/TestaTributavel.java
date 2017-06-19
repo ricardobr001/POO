@@ -6,6 +6,7 @@
 package poo.aulas.util;
 
 import poo.aulas.banco.ContaCorrente;
+import poo.aulas.banco.Teste;
 import poo.aulas.banco.Tributavel;
 
 /**
@@ -27,5 +28,12 @@ public class TestaTributavel {
         
         /*Usar cc para getSaldo()*/
         System.out.println(cc.getSaldo());
+        for (int i = 0 ; i < 10 ; i++){
+            System.out.println(i + "-" + cc.metodo1());
+        }
+        ContaCorrente cc2 = new ContaCorrente();
+        System.out.println("cc2 " + cc2.metodo1());
+        System.out.println("Acessando diretamente static: " + ContaCorrente.i);
+        System.out.println("Acessando pelo metodo no objeto cc1: " + cc.getI());
     }    
 }

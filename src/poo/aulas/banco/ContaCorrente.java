@@ -10,13 +10,14 @@ package poo.aulas.banco;
  * @author aluno
  */
 public class ContaCorrente extends Conta implements Tributavel {
-    
+    public static int i;
     public ContaCorrente(Cliente titular, int numero, double saldo, double limite) {
         super(titular, numero, saldo, limite);
     }
 
     public ContaCorrente() {
         super();
+        this.i = 0;
     }
     
     @Override
@@ -33,5 +34,15 @@ public class ContaCorrente extends Conta implements Tributavel {
     @Override
     public double calculaTributos() {
         return this.saldo * 0.01;
+    }
+    
+    public static int metodo1(){
+       // int static i;
+        i++;
+        return i;
+    }
+    
+    public int getI(){
+        return ContaCorrente.i;
     }
 }

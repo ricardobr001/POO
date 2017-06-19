@@ -5,10 +5,12 @@
  */
 package poo.aulas.banco;
 
+import poo.aulas.banco.Conta;
+
 public class Banco {
   private String nome;
   private int n_contas;
-  private int qtdd_contas;
+  private static int qtdd_contas;
   private Conta[] contas;
 
   /*
@@ -72,5 +74,9 @@ public class Banco {
       }
       
       return false;
+  }
+  
+  public int getTotalDeContas(){
+      return Banco.qtdd_contas;
   }
 }

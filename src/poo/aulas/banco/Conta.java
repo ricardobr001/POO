@@ -14,6 +14,7 @@ abstract public class Conta {
   protected double limite;
   protected Cliente titular;
   protected int numero;
+  protected static int qtdd_contas;
 
   /*
    *Construtores*

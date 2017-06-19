@@ -10,5 +10,13 @@ package poo.aulas.banco.cliente;
  * @author aluno
  */
 public class Cliente {
+    private final String rg;
     
+    public Cliente(String rg){
+        this.rg = rg;
+    }
+
+    public String getRg() {
+        return rg;
+    }
 }
