@@ -36,7 +36,12 @@ public class Banco {
   public String mostraContas(){
       String retorno = "";
       for (int i = 0 ; i < this.qtdd_contas ; i++){
-          retorno = retorno + this.contas[i].getCliente() + "Saldo: " + this.contas[i].getSaldo() + "\n";
+          if (this.contas[i] instanceof ContaCorrente){
+            retorno = retorno + "Conta Corrente" + this.contas[i].getCliente() + "Saldo: " + this.contas[i].getSaldo() + "\n\n";
+          }
+          else {
+            retorno = retorno + "Conta Poupança" + this.contas[i].getCliente() + "Saldo: " + this.contas[i].getSaldo() + "\n\n";
+          }
       }
       
       return retorno;

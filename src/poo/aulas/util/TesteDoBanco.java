@@ -164,8 +164,9 @@ public class TesteDoBanco {
     while (flagPrincipal){
         System.out.println("Bem vindo ao Sistema gerenciador de bancos!");
         System.out.println("1 - Adicionar um novo banco.\n" +
-                "2 - Selecionar um banco já cadastrado.\n" +
-                "3 - Sair do sistema!");
+                "2 - Listar bancos ja cadastrados.\n" +
+                "3 - Selecionar um banco já cadastrado.\n" +
+                "4 - Sair do sistema!");
         
         Scanner dados = new Scanner(System.in);
         int opcao1 = Integer.parseInt(dados.nextLine());
@@ -184,20 +185,32 @@ public class TesteDoBanco {
                 break;
             
             case 2:
+                for (int i = 0 ; i < b.size() ; i++){
+                    System.out.println(b.get(i).getNome());
+                }
+                break;
+                
+            case 3:
                 System.out.printf("Digite o nome do banco: ");
                 nomeDoBanco = dados.nextLine();
+                boolean flagBanco = false;
+                int i = 0;
                 
-                for (int i = 0 ; i < b.size() ; i++){
-                    if(b.get(i).getNome() == nomeDoBanco){
+                for (i = 0 ; i < b.size() ; i++){
+                    if(b.get(i).getNome().equals(nomeDoBanco)){
+                        flagBanco = true;
                         break;
                     }
                 }
                 
-                boolean flagBanco = true;
+                if (!flagBanco){
+                    System.out.println("\nPor favor, selecione um banco já cadastrado!!\n");
+                }
+                
                 while(flagBanco){
-                    System.out.println("1 - Adicionar uma nova conta.\n" + 
-                            "2 - Adicionar uma nova conta corrente.\n" + 
-                            "3 - Adicionar uma nova conta poupança.\n" + 
+                    System.out.println("1 - Adicionar uma nova conta corrente e um cliente.\n" + 
+                            "2 - Adicionar uma nova conta poupança e um cliente.\n" + 
+                            "3 - Lista contas deste banco.\n" +
                             "4 - Sair do banco " + nomeDoBanco + "!\n");
                     int opcao2 = Integer.parseInt(dados.nextLine());
 
@@ -213,19 +226,62 @@ public class TesteDoBanco {
                             String cpf = dados.nextLine();
                             
                             Cliente c = new Cliente(nomeDoCliente, endereco, cpf);
-                            //b.get(i).
+                                
+                            System.out.printf("Informe o número da conta: ");
+                            int numeroConta = Integer.parseInt(dados.nextLine());
+                            
+                            System.out.printf("Informe o saldo do cliente: ");
+                            double saldo = Double.parseDouble(dados.nextLine());
+                            
+                            System.out.printf("Informe o limite do cliente: ");
+                            double limite = Double.parseDouble(dados.nextLine());
+                            ContaCorrente cc = new ContaCorrente(c, numeroConta, saldo, limite);
+                            
+                            b.get(i).adicionaConta(cc);
+                            System.out.println("Conta criada com sucesso!!\n\n");
                             break;
 
                         case 2:
+                            System.out.printf("Informe o nome do novo cliente: ");
+                            nomeDoCliente = dados.nextLine();
+                            
+                            System.out.printf("Informe o endereço: ");
+                            endereco = dados.nextLine();
+                            
+                            System.out.printf("Informe o CPF: ");
+                            cpf = dados.nextLine();
+                            
+                            c = new Cliente(nomeDoCliente, endereco, cpf);
+                                
+                            System.out.printf("Informe o número da conta: ");
+                            numeroConta = Integer.parseInt(dados.nextLine());
+                            
+                            System.out.printf("Informe o saldo do cliente: ");
+                            saldo = Double.parseDouble(dados.nextLine());
+                            
+                            System.out.printf("Informe o limite do cliente: ");
+                            limite = Double.parseDouble(dados.nextLine());
+                            ContaPoupanca cp = new ContaPoupanca(c, numeroConta, saldo, limite);
+                            
+                            b.get(i).adicionaConta(cp);
+                            System.out.println("Conta criada com sucesso!!\n\n");
                             break;
-
+                            
+                        case 3:
+                            System.out.println(b.get(i).mostraContas());
+                            break;
+                            
+                        case 4:
+                            flagBanco = false;
+                            break;
+                            
                         default:
                             System.out.println("\nPor favor, selecione uma opção válida!\n");
                     }
                 }
                 break;
                 
-            case 3:
+            case 4:
                 flagPrincipal = false;
                 break;
                 
