@@ -211,7 +211,9 @@ public class TesteDoBanco {
                     System.out.println("1 - Adicionar uma nova conta corrente e um cliente.\n" + 
                             "2 - Adicionar uma nova conta poupança e um cliente.\n" + 
                             "3 - Lista contas deste banco.\n" +
-                            "4 - Sair do banco " + nomeDoBanco + "!\n");
+                            "4 - Depositar em uma conta.\n" + 
+                            "5 - Transferir de uma conta para outra.\n" + 
+                            "6 - Sair do banco " + nomeDoBanco + "!\n");
                     int opcao2 = Integer.parseInt(dados.nextLine());
 
                     switch(opcao2){
@@ -272,6 +274,35 @@ public class TesteDoBanco {
                             break;
                             
                         case 4:
+                            System.out.printf("Informe o numero da conta do titular: ");
+                            numeroConta = Integer.parseInt(dados.nextLine());
+                            
+                            System.out.printf("Informe a quantidade a ser depositada: ");
+                            double deposito = Double.parseDouble(dados.nextLine());
+                            
+                            b.get(i).deposita(numeroConta, deposito);
+                            System.out.println("\nDepósito de " + deposito + "efetuado com sucesso!\n");
+                            break;
+                            
+                        case 5:
+                            System.out.printf("Informe o número da conta que deseja transferir: ");
+                            numeroConta = Integer.parseInt(dados.nextLine());
+                            
+                            Cliente clienteEncontrado = b.get(i).encontraCliente(numeroConta);
+                            
+                            if (clienteEncontrado != null){
+                                System.out.printf("Informe a quantidade que deseja transferir: ");
+                                Double transfere = Double.parseDouble(dados.nextLine());
+                                
+                                if (clienteEncontrado.)
+
+                            }
+                            else {
+                                System.out.println("\nCliente não encontrado!!\n");
+                            }                              
+                            break;
+                            
+                        case 6:
                             flagBanco = false;
                             break;
                             

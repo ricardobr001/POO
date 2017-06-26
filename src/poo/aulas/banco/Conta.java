@@ -83,6 +83,10 @@ abstract public class Conta {
       return "\nTitular: " + this.titular.getNome() + "\nCPF: " + this.titular.getCPF() + "\nEndereço: " + this.titular.getEndereco() + "\n";
   }
   
+  public Cliente returnCliente(){
+      return this.titular;
+  }
+  
   public int getNumero(){
       return this.numero;
   }

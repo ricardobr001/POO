@@ -84,4 +84,14 @@ public class Banco {
   public int getTotalDeContas(){
       return Banco.qtdd_contas;
   }
+  
+  public Cliente encontraCliente(int numeroConta){
+      for (int i = 0 ; i < qtdd_contas ; i++){
+          if (this.contas[i].getNumero() == numeroConta){
+              return this.contas[i].returnCliente();
+          }
+      }
+      
+      return null;
+  }
 }
