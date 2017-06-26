@@ -285,16 +285,28 @@ public class TesteDoBanco {
                             break;
                             
                         case 5:
-                            System.out.printf("Informe o número da conta que deseja transferir: ");
+                            System.out.printf("Informe o número da conta que irá efetuar a  transferencia: ");
                             numeroConta = Integer.parseInt(dados.nextLine());
                             
-                            Cliente clienteEncontrado = b.get(i).encontraCliente(numeroConta);
+                            Cliente clienteTransfA = b.get(i).encontraCliente(numeroConta);
                             
-                            if (clienteEncontrado != null){
-                                System.out.printf("Informe a quantidade que deseja transferir: ");
-                                Double transfere = Double.parseDouble(dados.nextLine());
+                            if (clienteTransfA != null){
+                                System.out.printf("Informe o número da conta para onde irá transferir: ");
+                                numeroConta = Integer.parseInt(dados.nextLine());
                                 
-                                if (clienteEncontrado.)
+                                Cliente clienteTransfB = b.get(i).encontraCliente(numeroConta);
+                                
+                                if (clienteTransfB != null) {
+                                    System.out.printf("Informe a quantidade que deseja transferir: ");
+                                    Double transfere = Double.parseDouble(dados.nextLine());
+                                    
+                                    if (clienteTransfA.transfere(clienteTransfB, transfere)){
+                                        
+                                    }
+                                }
+                                
+                                
+                                
 
                             }
                             else {
