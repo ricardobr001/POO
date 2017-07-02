@@ -85,10 +85,10 @@ public class Banco {
       return Banco.qtdd_contas;
   }
   
-  public Cliente encontraCliente(int numeroConta){
+  public Conta encontraConta(int numeroConta){
       for (int i = 0 ; i < qtdd_contas ; i++){
           if (this.contas[i].getNumero() == numeroConta){
-              return this.contas[i].returnCliente();
+              return this.contas[i];
           }
       }
       

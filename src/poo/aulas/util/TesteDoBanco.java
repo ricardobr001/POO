@@ -288,26 +288,25 @@ public class TesteDoBanco {
                             System.out.printf("Informe o número da conta que irá efetuar a  transferencia: ");
                             numeroConta = Integer.parseInt(dados.nextLine());
                             
-                            Cliente clienteTransfA = b.get(i).encontraCliente(numeroConta);
+                            Conta contaA = b.get(i).encontraConta(numeroConta);
                             
-                            if (clienteTransfA != null){
+                            if (contaA != null){
                                 System.out.printf("Informe o número da conta para onde irá transferir: ");
                                 numeroConta = Integer.parseInt(dados.nextLine());
                                 
-                                Cliente clienteTransfB = b.get(i).encontraCliente(numeroConta);
+                                Conta contaB = b.get(i).encontraConta(numeroConta);
                                 
-                                if (clienteTransfB != null) {
+                                if (contaB != null) {
                                     System.out.printf("Informe a quantidade que deseja transferir: ");
                                     Double transfere = Double.parseDouble(dados.nextLine());
                                     
-                                    if (clienteTransfA.transfere(clienteTransfB, transfere)){
-                                        
+                                    if (contaA.transfere(contaB, transfere)){
+                                        System.out.println("\nR$ " + transfere + " transferido com sucesso!!\n");
+                                    }
+                                    else {
+                                        System.out.println("\nSaldo do " + contaA.getNome() +" insuficiente!!\n");
                                     }
                                 }
-                                
-                                
-                                
-
                             }
                             else {
                                 System.out.println("\nCliente não encontrado!!\n");

@@ -91,6 +91,10 @@ abstract public class Conta {
       return this.numero;
   }
   
+  public String getNome(){
+      return this.titular.getNome();
+  }
+  
   public abstract void atualizaSaldo(double taxa);/* {
       this.saldo = (this.saldo) * (1 + (taxa / 100));
   }*/
